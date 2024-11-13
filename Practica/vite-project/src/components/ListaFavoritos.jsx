@@ -17,7 +17,8 @@ export const ListaFavoritos=({data})=>{
     //Necesito un boton para actualizar a tiempo real sin hacer F5, porque tengo las funciones en otro componente
     const [favoritos,setFavoritos]=useState(getLocalItems);
     useEffect(()=>{
-        data && favoritos.map((item)=>document.querySelector(`.inputHeart[data-id='${item.id}']`).checked=true)
+        //Comprueba que la el corazon con ese data-id existe en el conjunto de los favoritos si existe va a pintar el corazon, si no existe no va a realizar nada
+        data && favoritos.map((item)=>document.querySelector(`.inputHeart[data-id='${item.id}']`)!=null ? document.querySelector(`.inputHeart[data-id='${item.id}']`).checked=true : '')
     },[data])
 
     function actualizar(){
