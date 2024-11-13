@@ -1,0 +1,296 @@
+
+
+body{
+  width: 100%;
+  height: 100%;
+  /*Patron sacado de internet*/
+  background-color: #313131;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.titulo{
+  color:white;
+}
+
+
+
+/*Contenedor para los comics*/
+.Container{
+
+  width: 90%;
+  border-radius: 1px;
+  display: flex;
+  margin:5vh 5vh 0vh 5vh;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+}
+
+
+.ContenedorComic{
+  border:2px;
+  border-radius:1em;
+  flex: 0 0 auto;
+  position: relative;
+  width: 300px;
+  margin:0vh 2vh 5vh 2vh;
+  object-fit: contain;
+}
+.Imagen{
+  width: 100%;
+  height: 75%;
+  object-fit: cover;
+  cursor:pointer;
+}
+/*Contenedor para los comics*/
+
+
+
+.ComicTitle{
+  color: white;
+}
+
+
+/*Navegador*/
+nav{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  position: relative;
+  height: 10vh;
+  background-color:#373737;
+  border: 2px;
+  text-align: center;
+  font-size: 50px;
+  font-weight: 100;
+  color:white;
+  justify-content: center;
+}
+
+
+/*Footer*/
+footer{
+  margin-top:10%;
+  height: 12vh;
+  background-color:#373737;
+  position: relative;
+}
+.footer-content{
+  color: white;
+  font-size: x-large;
+  font-weight: 100;
+  position: absolute;
+  
+}
+
+
+
+#root{
+  width: 100%;
+  height: 100%;
+ 
+}
+
+/*Popup y su contenido*/
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 60%;
+  height: 60%;
+  overflow: auto;
+  position: relative;
+  
+  display: flex;
+  
+}
+
+.contenedorImagenesPersonaje{
+  width: 550px;
+  height: 550px;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.close {
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.contenedorTexto{
+  margin-left: 2vw;
+}
+
+.popup-image {
+  width: 50%;
+  height: 30%;
+  
+  gap:5vw;
+  object-fit:cover;
+}
+
+
+/*SVG para los favoritos*/
+
+.inputHeart {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  
+}
+
+.container {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  position: absolute; 
+  cursor: pointer;
+  user-select: none;
+  bottom: 90%; 
+  left:30%;
+  width: 100%; 
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.container svg {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  transition: all 0.3s;
+  fill: #666;
+}
+
+.container svg:hover {
+  transform: scale(1.1);
+}
+
+.container input:checked ~ svg {
+  fill: #E3474F;
+}
+
+/*Media para que sea responsive*/
+
+@media (max-width: 768px) {
+  .container svg {
+    width: 15vw; 
+  }
+  nav{
+    font-size: 30px;
+  }
+  .Lista h3{
+    font-size: 30px;
+  }
+  
+}
+
+@media(max-width:1304px){
+  .Lista h3{
+    font-size: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .container svg {
+    width: 20vw; 
+  }
+  .Lista h3{
+    font-size: 10px;
+  }
+}
+
+
+/*Lista de los elementos favoritos*/
+.Lista {
+  border: 0.2em solid black;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  border-radius: 1vh;
+  color: white;
+  display: flex;
+  margin: 0vh 5vh;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 90%;
+  height: 50%;
+}
+.ContenedorListaFavoritos{
+  width: 100%;
+  display: flex;
+  object-fit: contain;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.ContenedorListaFavoritos button{
+  width: auto;
+}
+
+
+@media (max-width: 800px) {
+  .Lista {
+    width: 80%; 
+    height: 40%; 
+    margin:0 auto;
+  }
+  #Filtros{
+    font-size: 10px;
+  }
+
+  .ContenedorListaFavoritos {
+    width: 90%;
+    
+  }
+
+}
+
+
+@media (max-width: 480px) {
+  .ContenedorListaFavoritos button {
+    font-size: 0.9em; 
+  }
+  .Container{
+    width: 70%;
+  }
+  .ContenedorComic{
+    width: 150px;
+  }
+}
+
+
+/*Filtros para seleccionar los tipos de comics que quieres en el nav*/
+
+#Filtros{
+  margin:2vh 0 0 5vw;
+  width: 15%;
+  border: 0.11em solid black;
+  border-radius: 1vh;
+  left: 30%;
+  background-color: #313131;
+  height: 50%;
+  color:white
+}
